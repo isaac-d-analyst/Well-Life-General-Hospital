@@ -3,7 +3,7 @@
 
 ---
 
-## 📌 The Business Context
+## The Business Context
 
 Well-Life General Hospital compiled four years of patient admission records covering
 10,000 patients across seven diagnoses. Hospital management needed a structured,
@@ -17,7 +17,7 @@ population has undergone a fundamental shift that demands a strategic response.
 
 ---
 
-## ❗ The Business Problem
+## The Business Problem
 
 Three specific operational gaps were identified:
 
@@ -41,7 +41,7 @@ Power BI star schema.
 
 ---
 
-## 🎯 Project Objectives
+## Project Objectives
 
 - **Describe** total patient admissions across the four-year period
 - **Map** the disease landscape by diagnosis, category, and trend
@@ -52,7 +52,7 @@ Power BI star schema.
 
 ---
 
-## 📊 Dataset Overview
+## Dataset Overview
 
 | Property | Detail |
 |----------|--------|
@@ -68,7 +68,7 @@ Power BI star schema.
 
 ---
 
-## 📈 Key KPIs
+## Key KPIs
 
 | Metric | Value |
 |--------|-------|
@@ -82,7 +82,7 @@ Power BI star schema.
 
 ---
 
-## 🏥 Diagnosis Distribution
+## Diagnosis Distribution
 
 | Rank | Diagnosis | Patients | Category |
 |------|-----------|---------|---------|
@@ -99,7 +99,7 @@ Power BI star schema.
 
 ---
 
-## 👥 Age Distribution
+## Age Distribution
 
 | Age Range | Patients | % of Total |
 |-----------|---------|-----------|
@@ -113,7 +113,7 @@ Power BI star schema.
 
 ---
 
-## 📅 Year-on-Year Trends
+## Year-on-Year Trends
 
 | Year | Patients | Growth | Top Diagnosis | Avg Age |
 |------|---------|--------|--------------|---------|
@@ -124,7 +124,7 @@ Power BI star schema.
 
 ---
 
-## 💡 Key Insights
+## Key Insights
 
 **1. The hospital's patient profile has fundamentally changed**
 Stroke overtook typhoid as the leading diagnosis in 2024. Average patient age
@@ -153,7 +153,7 @@ The hospital cannot know without community-level data.
 
 ---
 
-## ✅ Business Recommendations
+## Business Recommendations
 
 | Recommendation | Expected Impact |
 |---------------|----------------|
@@ -165,7 +165,7 @@ The hospital cannot know without community-level data.
 
 ---
 
-## 🗄️ Data Model (Stage 2)
+## Data Model (Stage 2)
 
 Power BI star schema with three connected tables:
 
@@ -180,7 +180,7 @@ Diagnosis → Patient Records, with filters flowing from dimensions to fact.
 
 ---
 
-## 🖥️ Dashboard Features
+## Dashboard Features
 
 **4-page Power BI dashboard:**
 
@@ -196,7 +196,7 @@ Chronic/Infectious toggle, Patient Name search field.
 
 ---
 
-## 🏆 Skills Demonstrated
+## Skills Demonstrated
 
 | Skill | Application |
 |-------|------------|
@@ -209,7 +209,7 @@ Chronic/Infectious toggle, Patient Name search field.
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 - Five fields only — no treatment outcome, length of stay, or cost data
 - Descriptive analysis only — explains what happened, not why
@@ -219,7 +219,7 @@ Chronic/Infectious toggle, Patient Name search field.
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - Integrate treatment outcome and discharge data for quality-of-care analysis
 - Add financial data to measure cost and revenue impact by diagnosis
