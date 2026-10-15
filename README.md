@@ -26,9 +26,10 @@ Chronic disease admissions were rising while capacity and staffing remained
 aligned to infectious disease management — the historical profile, not the
 current one.
 
-**2. Seasonal planning was reactive.**
-Q1 consistently produced the highest admission volumes every year — but without
-a visible pattern, the hospital could not prepare in advance.
+**2. Quarterly patterns were not being tracked.**
+Admissions grew across the four years, so quarterly volumes mostly follow the
+overall trend (Q1 was the busiest quarter only in 2024, and the quietest in 2021).
+A seasonal pattern cannot be concluded from this data.
 
 **3. Demographic shifts were not being captured.**
 The average patient age rose from 39 to 48 over four years. Services designed
@@ -57,7 +58,7 @@ Power BI star schema.
 | Property | Detail |
 |----------|--------|
 | Total Records | 10,000 patient admissions |
-| Time Period | 2021 – 2024 (1,460 days) |
+| Time Period | 2021 – 2024 |
 | Diagnoses | 7 — Asthma, Diabetes, Hypertension, Malaria, Stroke, Typhoid, Ulcer |
 | Categories | Chronic (5 conditions) | Infectious (2 conditions) |
 | Source | SkillAhead WellLife Hospital Patient Records (.xlsx) |
@@ -75,7 +76,7 @@ Power BI star schema.
 | Total Patients | 10,000 |
 | Average Age | 44 years |
 | Diagnosis Count | 7 |
-| Days Analyzed | 1,460 |
+| Distinct Admission Dates | 1,451 |
 | Male Patients | 5,681 (56.81%) |
 | Female Patients | 4,319 (43.19%) |
 | Growth 2021–2024 | +132% (1,409 → 3,266) |
@@ -131,10 +132,10 @@ Stroke overtook typhoid as the leading diagnosis in 2024. Average patient age
 rose from 39 to 48 in four years. The hospital designed for infectious disease
 management is now primarily serving a chronic disease population.
 
-**2. Q1 is predictably the most demanding quarter**
-Every year without exception, Q1 produced the highest admission volumes.
-Post-holiday diet, deferred checkups, and cold-season stress drive this pattern.
-Four years of data confirms this is not noise — it is a standing operational reality.
+**2. Quarterly volume does not show a reliable seasonal peak**
+The busiest quarter was Q3 in 2021, Q4 in 2022 and 2023, and Q1 in 2024; Q1 was
+the quietest quarter of 2021. Q1 leads only on the four-year total (2,563 vs
+2,538 / 2,441 / 2,458), so more years of data are needed before planning around a season.
 
 **3. The 31–40 age group is the highest-demand segment**
 Working-age adults aged 31–40 represent the hospital's largest patient cohort
@@ -153,12 +154,31 @@ The hospital cannot know without community-level data.
 
 ---
 
+## Stage 3: Year-on-Year Growth
+
+**Growth Rate %** = `DIVIDE([Change_In_Patient_Admission], [Previous year], 0)`
+
+| Year | Admissions | Year-on-year growth |
+|------|-----------:|--------------------:|
+| 2021 | 1,409 | — |
+| 2022 | 2,292 | +62.67% |
+| 2023 | 3,033 | +32.33% |
+| 2024 | 3,266 | +7.68% |
+
+Admissions rose 132% from 2021 to 2024, but growth slowed every year. Chronic cases drove the rise (683 to 2,877) while infectious cases fell (726 to 389).
+
+**Known issues**
+- The Growth Rate % card on the main dashboard reads **48.50%** when no single year is selected. It compares the whole four-year total (10,000) with the same dates shifted back one year (6,734, i.e. 2021–2023), so it is not a true year-on-year rate. Selecting one year in the slicer should give the intended rate (for example 7.68% for 2024) — worth confirming in Power BI.
+- Typhoid admissions appear only in Q1 2024 (121, against 445–470 in earlier years). This looks like a gap in the data rather than a real decline and should be checked at source before it is interpreted.
+
+---
+
 ## Business Recommendations
 
-| Recommendation | Expected Impact |
+| Recommendation | Illustrative target (an assumption, not derived from the data) |
 |---------------|----------------|
 | Expand chronic care for stroke, diabetes, hypertension | 30% increase in chronic capacity; fewer emergency cases from unmanaged conditions |
-| Build a Q1 operational protocol | 25% fewer medicine shortages; faster treatment during peak season |
+| Track quarterly admissions for more years before building a seasonal protocol | Confirm whether a seasonal pattern exists (not shown in four years of data) |
 | Launch 31–40 age group preventive programs | 25% more visits from largest patient segment; earlier chronic disease detection |
 | Design gender-specific health campaigns | 20% more male chronic screenings; 30% rise in female preventive attendance |
 | Investigate typhoid/malaria decline | Evidence-based resource reallocation — not assumptions |
@@ -182,7 +202,7 @@ Diagnosis → Patient Records, with filters flowing from dimensions to fact.
 
 ## Dashboard Features
 
-**4-page Power BI dashboard:**
+**Power BI report (6 pages after Stage 3):**
 
 | Page | Purpose | Key Visuals |
 |------|---------|------------|
@@ -203,7 +223,7 @@ Chronic/Infectious toggle, Patient Name search field.
 | Power Query | Imported Excel data, extracted Year/Quarter, validated 10,000 records |
 | Data Modeling | Built star schema with correct one-to-many relationships and filter direction |
 | DAX Measures | Total Patients, Average Age, Diagnosis Count, Chronic/Infectious aggregations |
-| Dashboard Design | 4-page interactive dashboard serving both management and clinical audiences |
+| Dashboard Design | Multi-page (6) interactive report serving both management and clinical audiences |
 | FIRE Framework | Facts → Insights → Recommendations → Expected Outcomes for all 5 tasks |
 | Business Translation | Demographic shift narrative connecting data patterns to operational strategy |
 
@@ -260,4 +280,4 @@ the data.
 
 ---
 
-*Well-Life General Hospital | SkillAhead Analytics | Power BI | 2021–2024*
+*Well-Life General Hospital | SkillAhead | Power BI | 2021–2024*
